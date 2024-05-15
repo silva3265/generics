@@ -1,6 +1,6 @@
-package generics_introducao;
+package generics;
 
-public class Cliente {
+public class Cliente implements Nomeavel, PessoaJuridica {
 
     private String razaoSocial;
     private double faturamentoMensal;
@@ -24,6 +24,19 @@ public class Cliente {
 
     public void setFaturamentoMensal(double faturamentoMensal) {
         this.faturamentoMensal = faturamentoMensal;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "razaoSocial='" + razaoSocial + '\'' +
+                ", faturamentoMensal=" + faturamentoMensal +
+                '}';
+    }
+
+    @Override
+    public String getNome() {
+        return getRazaoSocial();
     }
 
 }
