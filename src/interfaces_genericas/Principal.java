@@ -1,0 +1,27 @@
+package interfaces_genericas;
+
+public class Principal {
+
+    public static void main(String[] args) {
+        Colecao<Produto> produtos = new Fila<>();
+        produtos.colocar(new Produto("Arroz"));
+        produtos.colocar(new Produto("Feijão"));
+        produtos.colocar(new Produto("Água de coco"));
+
+        retirarTodos(produtos);
+    }
+
+    private static void retirarTodos(Colecao<Produto> produtos) {
+        try {
+            int i = 1;
+            while (true) { // loop infinito, a nao ser que a exceção seja lançada
+                Produto produto = produtos.retirar();
+                System.out.printf("%d. %s%n", i, produto.getDescricao());
+                i++;
+            }
+        } catch (ColecaoVaziaException e) {
+            System.out.println("Coleção de produtos esgotada");
+        }
+    }
+
+}
